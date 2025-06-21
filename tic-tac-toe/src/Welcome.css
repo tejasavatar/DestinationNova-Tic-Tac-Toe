@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Permanent Marker', cursive;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5c1c91;
+  overflow: hidden;
+}
+
+.overlay {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  padding: 60px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+      0 0 30px rgba(255, 60, 172, 0.2),
+      0 0 60px rgba(142, 45, 226, 0.15),
+      inset 0 0 15px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 600px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: shine 4s linear infinite;
+  z-index: 0;
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 8px;
+  margin-top: 0;
+  color: #ff3cac;
+  text-shadow: 1px 1px 5px #8e2de2;
+  animation: glow 2s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 2;
+}
+
+p {
+  font-size: 22px;
+  color: #e0c97f;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.start-btn {
+  text-decoration: none;
+  background: linear-gradient(135deg, #2cd975, #10b981);
+  border: none;
+  color: white;
+  padding: 14px 36px;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(44, 217, 117, 0.4);
+  cursor: pointer;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #10b981, #2cd975);
+  box-shadow: 0 10px 24px rgba(44, 217, 117, 0.5),
+              0 0 10px rgba(255, 60, 172, 0.3);
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 16px;
+  color: #8e2de2;
+  position: relative;
+  z-index: 2;
+}
+
+.lotus-logo {
+  width: 180px;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.lotus-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 8px #e91e63, 0 0 16px #8e2de2;
+  }
+  to {
+    text-shadow: 0 0 16px #ff3cac, 0 0 32px #10b981;
+  }
+}
+
+@keyframes shine {
+  0% { transform: rotate(45deg) translate(-100%, -100%); }
+  100% { transform: rotate(45deg) translate(100%, 100%); }
+}
